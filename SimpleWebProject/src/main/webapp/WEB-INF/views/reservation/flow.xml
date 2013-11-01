@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<view-state id="enter-reservation-details"
+		view="enterReservationDetails.jsp">
+	<transition to="select-seating-time" on="submit"></transition>
+	
+	
+	<transition to="cancelled" on="cancel"></transition>
+	</view-state>
+
+	<view-state id="select-seating-time" view="selectSeatingTime.jsp">
+		<transition to="enter-contact-details" on="submit"></transition>
+
+		<transition to="cancelled" on="cancel"></transition>
+		<transition to="test" on="test"></transition>
+	</view-state>
+	<view-state id="enter-contact-details"
+		view="enterContactDetails.jsp">
+	<transition to="success" on="submit"></transition>
+
+	<transition to="cancelled" on="cancel"></transition>
+	</view-state>
+	<end-state id="success" view="success.jsp"></end-state>
+	
+	<end-state id="cancelled" view="cancelled.jsp"></end-state>
+	<view-state id="test" view="test.jsp"></view-state>
+</flow>
